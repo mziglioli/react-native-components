@@ -1,6 +1,10 @@
-import React from "react";
+import React from 'react';
+import { Text } from 'react-native';
 
-const Title = ({ value }) =>
-    <div>{value}</div>
+interface TitleProps {
+  value: string;
+}
+
+const Title = ({ value }: TitleProps) => <Text>{value}</Text>;
 
 export { Title };
