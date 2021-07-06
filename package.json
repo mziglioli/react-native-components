@@ -47,7 +47,7 @@
   },
   "homepage": "https://github.com/mziglioli/react-native-components#readme",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "@mziglioli:registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^11.0.0",
