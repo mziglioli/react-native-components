@@ -1,6 +1,6 @@
 {
   "name": "react-native-components",
-  "version": "0.2.0",
+  "version": "0.0.1",
   "description": "library for react native components",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
@@ -47,7 +47,7 @@
   },
   "homepage": "https://github.com/mziglioli/react-native-components#readme",
   "publishConfig": {
-    "@mziglioli:registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^11.0.0",
