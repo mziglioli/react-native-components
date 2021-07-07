@@ -12,16 +12,14 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      - name: node
-        uses: actions/setup-node@v2
-        with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com
+      - name: gitconfig
+        run: |
+          git config user.name "mziglioli"
+          git config user.email "marcelozigliolil@gmail.com"
       - name: install
-        run: yarn
-      - name: test
-        run: yarn test
+        run: npm intall
       - name: publish
+        run: npm config set '//npm.pkg.github.com/:_authToken' "${NPM_TOKEN}" && npm run release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run:  npm config set '//npm.pkg.github.com/:_authToken' "${NPM_TOKEN}" && git config --global user.email "marcelozigliolil@gmail.com" && git config --global user.name "mziglioli" && yarn release
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
