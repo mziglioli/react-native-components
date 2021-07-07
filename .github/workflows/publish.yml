@@ -24,4 +24,4 @@ jobs:
       - name: publish
         env:
           PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
-        run: yarn release-pipeline
+        run: yarn release
