@@ -104,7 +104,7 @@
     "github": {
       "release": true,
       "skipChecks": true,
-      "tokenRef": "PUBLISH_TOKEN"
+      "tokenRef": "NPM_TOKEN"
     },
     "plugins": {
       "@release-it/conventional-changelog": {

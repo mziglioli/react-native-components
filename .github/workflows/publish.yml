@@ -17,7 +17,11 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com
+      - name: install
+        run: yarn
+      - name: test
+        run: yarn test
       - name: publish
         env:
-          PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
-        run: echo "PUBLISH_TOKEN"
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn release
