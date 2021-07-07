@@ -17,7 +17,7 @@ jobs:
           git config user.name "mziglioli"
           git config user.email "marcelozigliolil@gmail.com"
       - name: install
-        run: npm intall
+        run: npm install
       - name: publish
         run: npm config set '//npm.pkg.github.com/:_authToken' "${NPM_TOKEN}" && npm run release
         env:
