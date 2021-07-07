@@ -25,4 +25,4 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run:  npm config set '//npm.pkg.github.com/:_authToken' "${NPM_TOKEN}" && git config --global user.email "marcelozigliolil@gmail.com" && git config --global user.name "mziglioli" && yarn release manor
+        run:  npm config set '//npm.pkg.github.com/:_authToken' "${NPM_TOKEN}" && git config --global user.email "marcelozigliolil@gmail.com" && git config --global user.name "mziglioli" && yarn release --ci
