@@ -20,6 +20,5 @@ jobs:
       - name: publish
         run: yarn && yarn release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: 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
           NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
