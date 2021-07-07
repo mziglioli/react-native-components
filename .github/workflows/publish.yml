@@ -22,6 +22,6 @@ jobs:
       - name: test
         run: yarn test
       - name: publish
-        run: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+        run: yarn release
