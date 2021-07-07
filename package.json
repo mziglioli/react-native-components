@@ -36,10 +36,7 @@
     "ios",
     "android"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:mziglioli/react-native-components.git"
-  },
+  "repository":"https://github.com/mziglioli/react-native-components.git",
   "author": "mziglioli <marceloziglioli@gmail.com> (https://github.com/mziglioli)",
   "license": "MIT",
   "bugs": {
