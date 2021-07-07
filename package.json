@@ -1,5 +1,5 @@
 {
-  "name": "react-native-components",
+  "name": "@mziglioli/react-native-components",
   "version": "0.0.1",
   "description": "library for react native components",
   "main": "lib/commonjs/index.js",
