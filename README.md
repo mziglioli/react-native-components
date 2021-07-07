@@ -11,11 +11,9 @@ npm install react-native-components
 ## Usage
 
 ```js
-import Components from "react-native-components";
+import { Title } from "react-native-components";
 
 // ...
-
-const result = await Components.multiply(3, 7);
 ```
 
 ## Contributing
