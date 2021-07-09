@@ -1,10 +1,17 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Button as Btn } from 'react-native';
 
-interface TitleProps {
+interface ButtonProps {
   value: string;
+  onClick: () => void;
 }
 
-const Title = ({ value }: TitleProps) => <Text>{value}</Text>;
-
-export { Title };
+const Button = ({ value, onClick }: ButtonProps) => (
+  <Btn
+    onPress={onClick}
+    title={value}
+    color="#841584"
+    accessibilityLabel="Learn more about this purple button"
+  />
+);
+export { Button };
