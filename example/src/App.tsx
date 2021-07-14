@@ -1,11 +1,12 @@
 import React from 'react';
-
+// @ts-ignore
 import Storybook from '../storybook';
+import { Provider as PaperProvider } from 'react-native-paper';
 
 const App = () => (
-  // <ThemeProvider theme={theme}>
-  <Storybook />
-  // </ThemeProvider>
+  <PaperProvider>
+    <Storybook />
+  </PaperProvider>
 );
 
 export default App;
