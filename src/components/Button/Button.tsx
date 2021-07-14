@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button as Btn } from 'react-native';
+import { Button as Btn } from 'react-native-paper';
 
 interface ButtonProps {
   value: string;
@@ -7,11 +7,8 @@ interface ButtonProps {
 }
 
 const Button = ({ value, onClick }: ButtonProps) => (
-  <Btn
-    onPress={onClick}
-    title={value}
-    color="#841584"
-    accessibilityLabel="Learn more about this purple button"
-  />
+  <Btn icon="camera" mode="contained" onPress={onClick}>
+    {value}
+  </Btn>
 );
 export { Button };

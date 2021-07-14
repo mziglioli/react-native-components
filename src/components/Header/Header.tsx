@@ -1,14 +1,21 @@
 import React from 'react';
-import { Button as Btn } from 'react-native-paper';
+import { Appbar } from 'react-native-paper';
 
-interface ButtonProps {
+interface HeaderProps {
   value: string;
-  onClick: () => void;
+  onBackAction: () => void;
+  onMenuAction: () => void;
 }
 
-const Button = ({ value, onClick }: ButtonProps) => (
-  <Btn icon="camera" mode="contained" onPress={onClick}>
-    {value}
-  </Btn>
+const Header = ({ onBackAction, onMenuAction }: HeaderProps) => (
+  <Appbar.Header>
+    <Appbar.BackAction onPress={onBackAction} touchSoundDisabled={false} />
+    <Appbar.Content title="Title" />
+    <Appbar.Action
+      icon="dots-vertical"
+      onPress={onMenuAction}
+      touchSoundDisabled={false}
+    />
+  </Appbar.Header>
 );
-export { Button };
+export { Header };
