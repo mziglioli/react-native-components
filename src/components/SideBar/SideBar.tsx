@@ -1,20 +1,28 @@
 import React from 'react';
-import { Appbar } from 'react-native-paper';
+import { Drawer } from 'react-native-paper';
+import type { MenuItems } from '../../type';
 
-interface HeaderProps {
-  onBackAction: () => void;
-  onMenuAction: () => void;
+interface SideBarProps {
+  items: MenuItems;
 }
 
-const Header = ({ onBackAction, onMenuAction }: HeaderProps) => (
-  <Appbar.Header testID="Header">
-    <Appbar.BackAction onPress={onBackAction} touchSoundDisabled={false} />
-    <Appbar.Content title="Title" />
-    <Appbar.Action
-      icon="dots-vertical"
-      onPress={onMenuAction}
-      touchSoundDisabled={false}
-    />
-  </Appbar.Header>
-);
-export { Header };
+const SideBar = ({ items }: SideBarProps) => {
+  return (
+    <Drawer.Section title="Some title" testID="SideBar__Drawer">
+      {items.length > 0 &&
+        items.map((item, index) => (
+          <Drawer.Item
+            key={`SideBar__Drawer_Item_${index}`}
+            testID={`SideBar__Drawer_Item_${index}`}
+            label={item.label}
+            active={item.active || false}
+            icon={item.icon}
+            onPress={item.onPress}
+            accessible
+          />
+        ))}
+    </Drawer.Section>
+  );
+};
+
+export { SideBar };

@@ -1,17 +1,16 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
-import { Header } from './Header';
+import { SideBar } from './SideBar';
+import { buildItems } from '../utils/Builder.test';
 
-describe('<Header>', () => {
-  const mockMenuAction = jest.fn();
-  const mockBackAction = jest.fn();
+describe('<SideBar>', () => {
+  const renderComponent = () => render(<SideBar items={buildItems()} />);
 
-  const renderComponent = () =>
-    render(
-      <Header onBackAction={mockBackAction} onMenuAction={mockMenuAction} />
-    );
   it('should render the component', () => {
     const { getByTestId } = renderComponent();
-    expect(getByTestId('Header')).toBeDefined();
+    expect(getByTestId('SideBar__Drawer')).toBeDefined();
+    expect(getByTestId('SideBar__Drawer_Item_0')).toBeDefined();
+    expect(getByTestId('SideBar__Drawer_Item_1')).toBeDefined();
+    expect(getByTestId('SideBar__Drawer_Item_2')).toBeDefined();
   });
 });
