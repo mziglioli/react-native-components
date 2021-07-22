@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 import { SideBar } from './SideBar';
-import { buildItems } from '../utils/BuilderTest';
+import { buildItems } from '../../utils/BuilderTest';
 
 describe('<SideBar>', () => {
   const renderComponent = () =>

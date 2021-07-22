@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { AppBarHeader } from '../AppBarHeader';
 import { View, ScrollView } from 'react-native';
 
@@ -6,7 +6,7 @@ interface PageProps {
   page: string;
   title: string;
   navigation: any;
-  children?: any;
+  children?: ReactNode;
 }
 
 const Page = ({ page, title, navigation, children }: PageProps) => (
