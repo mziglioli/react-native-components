@@ -1,5 +1,5 @@
 import type { MenuItem, MenuItems } from '../../type';
-
+/* istanbul ignore file */
 export const buildItem = (
   label: string,
   icon: string,
@@ -9,7 +9,7 @@ export const buildItem = (
     label: `${label} item`,
     icon: icon,
     active: active,
-    onPress: () => console.log(`clicked in the ${label} item`),
+    page: `${label}`,
   };
 };
 
@@ -18,6 +18,6 @@ export const buildItems = (): MenuItems => {
   return [
     buildItem('first', 'star', false),
     buildItem('second', '', false),
-    buildItem('third', '', false),
+    buildItem('Contact', '', false),
   ];
 };

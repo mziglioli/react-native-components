@@ -2,7 +2,7 @@ export interface MenuItem {
   label: string;
   active?: boolean;
   icon?: string;
-  onPress: () => void;
+  page: string;
 }
 
 export type MenuItems = MenuItem[];

@@ -4,5 +4,5 @@ import { SideBar } from '../../../src';
 import { buildItems } from '../../../src/components/utils/Builder.test';
 
 storiesOf('SideBar', module).add('Default', () => (
-  <SideBar items={buildItems()} />
+  <SideBar items={buildItems()} navigation={{}} />
 ));

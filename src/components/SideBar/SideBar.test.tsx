@@ -1,10 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 import { SideBar } from './SideBar';
-import { buildItems } from '../utils/Builder.test';
+import { buildItems } from '../utils/BuilderTest';
 
 describe('<SideBar>', () => {
-  const renderComponent = () => render(<SideBar items={buildItems()} />);
+  const renderComponent = () =>
+    render(<SideBar title="test" items={buildItems()} />);
 
   it('should render the component', () => {
     const { getByTestId } = renderComponent();
