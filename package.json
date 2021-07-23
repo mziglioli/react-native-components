@@ -30,6 +30,7 @@
     "release-pipeline": "read -p 'PUBLISH_TOKEN: ' PUBLISH_TOKEN && export PUBLISH_TOKEN=$PUBLISH_TOKEN && release-it",
     "example": "yarn --cwd example",
     "pods": "cd example && pod-install --quiet",
+    "storybook": "cd example && yarn web",
     "bootstrap": "yarn example && yarn && yarn pods"
   },
   "keywords": [
