@@ -1,6 +1,6 @@
 import React, { createContext, FC, useContext, useReducer } from 'react';
 
-const ThemeContext = createContext(null);
+const ThemeContext = createContext({});
 
 interface ThemeProviderProps {
   children: React.ReactElement;
@@ -18,9 +18,10 @@ const themeReducer = (state: any, action: { type: string; payload: any }) => {
 };
 
 const useTheme = () => {
+  // @ts-ignore
   const { state, dispatch } = useContext(ThemeContext);
   const actions = {
-    modify: (data) => {
+    modify: (data: any) => {
       dispatch({
         type: 'modify',
         payload: data,
@@ -28,7 +29,7 @@ const useTheme = () => {
     },
   };
   return {
-    state,
+    theme: state,
     actions,
   };
 };

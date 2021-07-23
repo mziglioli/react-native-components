@@ -1,11 +1,11 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
 import { SideBar } from '../SideBar';
 import { Page } from '../Page';
 import { View, Button } from 'react-native';
 import { TabBottom } from '../TabBottom';
 import { buildItems, tabScenes, tabRoutes } from '../../utils';
+import { NavigationContainer } from '@react-navigation/native';
 
 const Drawer = createDrawerNavigator();
 const SideBarItems = buildItems();
@@ -46,7 +46,9 @@ const Navigation = () => (
           >
             <View>
               <Button
-                onPress={() => props.navigation.navigate('first')}
+                onPress={() => {
+                  props.navigation.navigate('first');
+                }}
                 title={'second page'}
               />
             </View>
