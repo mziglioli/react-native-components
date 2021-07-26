@@ -1,28 +1,43 @@
 import React from 'react';
-import { Drawer } from 'react-native-paper';
-import type { MenuItems } from '../../type';
-import { View } from 'react-native';
+import { Avatar, Divider, Drawer } from 'react-native-paper';
+import type { MenuItems, MenuItem } from '../../type';
+import { View, Text } from 'react-native';
 
 interface SideBarProps {
-  title: string;
+  currentPage: string;
+  customer: {
+    name: string;
+    initials: string;
+  };
   items: MenuItems;
-  navigation?: any;
+  itemPress: (item: MenuItem) => void;
 }
 
-const SideBar = ({ title, items, navigation }: SideBarProps) => {
+const SideBar = ({ currentPage, customer, items, itemPress }: SideBarProps) => {
   return (
     <View style={{ flex: 1 }}>
-      <Drawer.Section title={title} testID="SideBar__Drawer">
+      <View
+        style={{
+          padding: 14,
+          flex: 1,
+          flexDirection: 'row',
+        }}
+      >
+        <Avatar.Text size={32} label={customer.initials} />
+        <Text style={{ paddingLeft: 26, paddingTop: 4 }}>{customer.name}</Text>
+      </View>
+      <Divider style={{ marginBottom: 6 }} />
+      <Drawer.Section testID="SideBar__Drawer">
         {items.length > 0 &&
           items.map((item, index) => (
             <Drawer.Item
               key={`SideBar__Drawer_Item_${index}`}
               testID={`SideBar__Drawer_Item_${index}`}
               label={item.label}
-              active={item.active || false}
+              active={item.page === currentPage}
               icon={item.icon}
               onPress={() => {
-                navigation?.navigate(item.page);
+                itemPress(item);
               }}
               accessible
             />

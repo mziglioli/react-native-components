@@ -1,21 +1,21 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { SideBar, buildItems } from '../src';
-import { action, ActionOptions } from '@storybook/addon-actions';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'SideBar',
 };
-export const SideBarDefault = () => (
+export const SideBarDefault = (overrides: any) => (
   <SideBar
     items={buildItems()}
-    navigation={{
-      navigate: (value: ActionOptions | undefined) => {
-        console.log('navigate to', value);
-        action('navigate to', value);
-      },
+    itemPress={(item) => {
+      console.log('itemPress', item);
+      action('navigate to');
     }}
-    title="test"
+    currentPage={'Contact'}
+    customer={{ name: 'Marcelo Ziglioli', initials: 'MZ' }}
+    {...overrides}
   />
 );
 storiesOf('SideBar', module).add('Default', SideBarDefault);

@@ -5,23 +5,24 @@ import { View, ScrollView } from 'react-native';
 interface PageProps {
   page: string;
   title: string;
-  navigation: any;
+  onBackAction: () => void;
+  onMenuAction: () => void;
   children?: ReactNode;
 }
 
-const Page = ({ page, title, navigation, children }: PageProps) => (
+const Page = ({
+  page,
+  title,
+  onBackAction,
+  onMenuAction,
+  children,
+}: PageProps) => (
   <View>
     <AppBarHeader
       title={title}
       showBackButton={page !== 'Home'}
-      onBackAction={() => {
-        console.log('onBackAction');
-        navigation.navigate('Home');
-      }}
-      onMenuAction={() => {
-        console.log('onMenuAction');
-        navigation.openDrawer();
-      }}
+      onBackAction={onBackAction}
+      onMenuAction={onMenuAction}
     />
     <ScrollView>{children}</ScrollView>
   </View>

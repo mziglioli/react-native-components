@@ -17,7 +17,7 @@ export const buildItem = (
   active: boolean
 ): MenuItem => {
   return {
-    label: `${label} item`,
+    label: `${label}`,
     icon: icon,
     active: active,
     page: `${label}`,
@@ -27,9 +27,9 @@ export const buildItem = (
 // @ts-ignore
 export const buildItems = (): MenuItems => {
   return [
-    buildItem('first', 'star', false),
-    buildItem('second', '', false),
-    buildItem('Contact', '', false),
+    buildItem('Account', 'account', false),
+    buildItem('Help', 'help-circle', false),
+    buildItem('Contact', 'card-account-phone', false),
   ];
 };
 

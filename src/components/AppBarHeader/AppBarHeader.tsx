@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Appbar } from 'react-native-paper';
 
 interface HeaderProps {
@@ -13,22 +13,28 @@ const AppBarHeader = ({
   showBackButton,
   onBackAction,
   onMenuAction,
-}: HeaderProps) => (
-  <Appbar.Header testID="AppBarHeader">
-    {showBackButton && (
-      <Appbar.BackAction
-        testID="AppBarHeader__BackAction"
-        onPress={onBackAction}
+}: HeaderProps) => {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  return (
+    <Appbar.Header testID="AppBarHeader">
+      {showBackButton && (
+        <Appbar.BackAction
+          testID="AppBarHeader__BackAction"
+          onPress={onBackAction}
+          touchSoundDisabled={false}
+        />
+      )}
+      <Appbar.Content testID="AppBarHeader__Content" title={title} />
+      <Appbar.Action
+        testID="AppBarHeader__Action"
+        icon={menuOpen ? 'menu-open' : 'menu'}
+        onPress={() => {
+          setMenuOpen(!menuOpen);
+          onMenuAction();
+        }}
         touchSoundDisabled={false}
       />
-    )}
-    <Appbar.Content testID="AppBarHeader__Content" title={title} />
-    <Appbar.Action
-      testID="AppBarHeader__Action"
-      icon="dots-vertical"
-      onPress={onMenuAction}
-      touchSoundDisabled={false}
-    />
-  </Appbar.Header>
-);
+    </Appbar.Header>
+  );
+};
 export { AppBarHeader };
