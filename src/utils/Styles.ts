@@ -44,6 +44,21 @@ const Styles = {
       padding: 5,
     },
   },
+  input: {
+    backgroundColor: 'white',
+  },
+  forgotPassword: {
+    width: '100%',
+    alignItems: 'flex-end',
+    marginBottom: 24,
+  },
+  row: {
+    flexDirection: 'row',
+    marginTop: 4,
+  },
+  link: {
+    fontWeight: 'bold',
+  },
 };
 
 export { Styles };
