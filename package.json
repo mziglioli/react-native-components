@@ -1,6 +1,6 @@
 {
   "name": "@mziglioli/react-native-components",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "library for react native components",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
