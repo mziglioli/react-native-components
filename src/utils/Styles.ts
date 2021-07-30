@@ -39,6 +39,11 @@ const Styles = {
       backgroundColor: '#fff',
     },
   },
+  list: {
+    item: {
+      padding: 5,
+    },
+  },
 };
 
 export { Styles };
