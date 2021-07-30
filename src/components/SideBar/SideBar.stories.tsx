@@ -1,7 +1,7 @@
 import React from 'react';
 import { SideBar } from './SideBar';
 import { action } from '@storybook/addon-actions';
-import { buildItems } from '../../utils/BuilderTest';
+import { buildMenuItems } from '../../utils/BuilderTest';
 import type { MenuItem } from '../../type';
 
 export default {
@@ -10,7 +10,7 @@ export default {
 };
 
 const defaultValues = {
-  items: buildItems(),
+  items: buildMenuItems(),
   itemPress: (item: MenuItem) => {
     console.log('itemPress', item);
     action('navigate to');

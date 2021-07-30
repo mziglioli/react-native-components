@@ -1,30 +1,15 @@
-import React, { ReactNode } from 'react';
-import { AppBarHeader } from '../AppBarHeader';
+import React from 'react';
 import { View, ScrollView } from 'react-native';
+import type { DefaultProps } from '../../type';
 
-interface PageProps {
+export interface PageProps extends DefaultProps {
   page: string;
   title: string;
-  onBackAction: () => void;
-  onMenuAction: () => void;
-  children?: ReactNode;
 }
 
-const Page = ({
-  page,
-  title,
-  onBackAction,
-  onMenuAction,
-  children,
-}: PageProps) => (
-  <View>
-    <AppBarHeader
-      title={title}
-      showBackButton={page !== 'Home'}
-      onBackAction={onBackAction}
-      onMenuAction={onMenuAction}
-    />
-    <ScrollView>{children}</ScrollView>
+const Page = ({ testId, children }: PageProps) => (
+  <View testID={`Page__Header__${testId}`}>
+    <ScrollView testID={`Page__Content__${testId}`}>{children}</ScrollView>
   </View>
 );
 export { Page };

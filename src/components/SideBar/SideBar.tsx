@@ -2,8 +2,9 @@ import React from 'react';
 import { Avatar, Divider, Drawer } from 'react-native-paper';
 import type { MenuItems, MenuItem } from '../../type';
 import { View, Text } from 'react-native';
+import { Styles } from '../../utils';
 
-interface SideBarProps {
+export interface SideBarProps {
   currentPage: string;
   customer: {
     name: string;
@@ -15,18 +16,16 @@ interface SideBarProps {
 
 const SideBar = ({ currentPage, customer, items, itemPress }: SideBarProps) => {
   return (
-    <View style={{ flex: 1 }}>
+    <View testID="SideBar" style={Styles.sidebar.box}>
       <View
-        style={{
-          padding: 14,
-          flex: 1,
-          flexDirection: 'row',
-        }}
+        testID="SideBar__Head"
+        // @ts-ignore
+        style={Styles.sidebar.head}
       >
         <Avatar.Text size={32} label={customer.initials} />
-        <Text style={{ paddingLeft: 26, paddingTop: 4 }}>{customer.name}</Text>
+        <Text style={Styles.sidebar.title}>{customer.name}</Text>
       </View>
-      <Divider style={{ marginBottom: 6 }} />
+      <Divider testID="SideBar__Divider" style={Styles.sidebar.divider} />
       <Drawer.Section testID="SideBar__Drawer">
         {items.length > 0 &&
           items.map((item, index) => (

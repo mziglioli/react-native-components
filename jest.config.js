@@ -19,7 +19,7 @@ module.exports = {
   transform: {
     '^.+\\.(js|jsx)$': 'babel-jest',
   },
-  transformIgnorePatterns: ['/node_modules/(?!@storybook)'],
+  // transformIgnorePatterns: ['/node_modules/(?!@storybook)'],
   setupFilesAfterEnv: [
     '@testing-library/jest-native/extend-expect',
     '<rootDir>/jest.setup-after-env.ts',

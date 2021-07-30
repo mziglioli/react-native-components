@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Appbar } from 'react-native-paper';
 
-interface HeaderProps {
+export interface HeaderProps {
   title: string;
   showBackButton?: boolean;
   onBackAction: () => void;

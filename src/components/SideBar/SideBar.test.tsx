@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 import { SideBar } from './SideBar';
-import { buildItems } from '../../utils/BuilderTest';
+import { buildMenuItems } from '../../utils/BuilderTest';
 
 describe('<SideBar>', () => {
   const mockCallback = jest.fn();
@@ -12,13 +12,9 @@ describe('<SideBar>', () => {
         itemPress={mockCallback}
         currentPage={'Contact'}
         customer={{ name: 'Marcelo Ziglioli', initials: 'MZ' }}
-        items={buildItems()}
+        items={buildMenuItems()}
       />
     );
-
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
 
   it('should render the component', () => {
     const { getByTestId } = renderComponent();

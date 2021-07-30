@@ -1,4 +1,10 @@
-import type { MenuItem, MenuItems } from '../type';
+import type {
+  ColorType,
+  ListItem,
+  ListItems,
+  MenuItem,
+  MenuItems,
+} from '../type';
 import { Text, View } from 'react-native';
 import {
   Title,
@@ -11,7 +17,7 @@ import {
 import React from 'react';
 
 /* istanbul ignore file */
-export const buildItem = (
+export const buildMenuItem = (
   label: string,
   icon: string,
   active: boolean
@@ -23,13 +29,33 @@ export const buildItem = (
     page: `${label}`,
   };
 };
+export const buildListItem = (id: string, type: ColorType): ListItem => {
+  return {
+    id,
+    title: `${id} title`,
+    description: `${id} description`,
+    type,
+  };
+};
 
 // @ts-ignore
-export const buildItems = (): MenuItems => {
+export const buildMenuItems = (): MenuItems => {
   return [
-    buildItem('Account', 'account', false),
-    buildItem('Help', 'help-circle', false),
-    buildItem('Contact', 'card-account-phone', false),
+    buildMenuItem('Account', 'account', false),
+    buildMenuItem('Help', 'help-circle', false),
+    buildMenuItem('Contact', 'card-account-phone', false),
+  ];
+};
+
+export const buildListItems = (): ListItems => {
+  return [
+    buildListItem('1', 'success'),
+    buildListItem('2', 'success'),
+    buildListItem('3', 'error'),
+    buildListItem('4', 'error'),
+    buildListItem('5', 'success'),
+    buildListItem('6', 'warn'),
+    buildListItem('7', 'warn'),
   ];
 };
 
