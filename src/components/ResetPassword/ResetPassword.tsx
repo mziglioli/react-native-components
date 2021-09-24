@@ -38,27 +38,28 @@ export const ResetPassword = ({
       </View>
       {showError && (
         <ParagraphColored
-          testId={`Login__Error__${testId}`}
+          testId={`ResetPassword__Error__${testId}`}
           type={'error'}
           content={'Something went wrong, please try again later'}
         />
       )}
       <Button
-        testID={`Login__Submit__${testId}`}
+        testID={`ResetPassword__Submit__${testId}`}
         mode="contained"
         disabled={!email.isValid}
         onPress={() => {
           console.log('clicked on submit');
-          if (email.isValid) {
-            onResetClick(email.value);
-          }
+          onResetClick(email.value);
         }}
       >
         RESET PASSWORD
       </Button>
       {/*@ts-ignore*/}
       <View style={Styles.row}>
-        <TouchableOpacity onPress={onLoginClick}>
+        <TouchableOpacity
+          testID={`ResetPassword__Login__${testId}`}
+          onPress={onLoginClick}
+        >
           <Subheading>← Back to login</Subheading>
         </TouchableOpacity>
       </View>

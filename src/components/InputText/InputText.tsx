@@ -35,9 +35,6 @@ export const InputText = ({
         style={Styles.input}
         underlineColor="transparent"
         onChangeText={validate}
-        // onBlur={(e: any) => {
-        //   validate(e.target.value);
-        // }}
         {...props}
       />
       {showError && (

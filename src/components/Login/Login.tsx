@@ -76,9 +76,7 @@ export const Login = ({
         disabled={!(email.isValid && password.isValid)}
         onPress={() => {
           console.log('clicked on submit');
-          if (email.isValid && password.isValid) {
-            onLoginClick(email.value, password.value);
-          }
+          onLoginClick(email.value, password.value);
         }}
       >
         LOGIN

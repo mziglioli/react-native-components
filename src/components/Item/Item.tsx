@@ -27,7 +27,7 @@ const Item = ({ testId, title, description, type, onClick }: ItemProps) => {
       right={() => (
         <IconButton
           touchSoundDisabled={false}
-          testID={`Item__Delete__${testId}`}
+          testID={`Item__Icon__${testId}`}
           icon="delete"
           onPress={onClick}
           color={color}

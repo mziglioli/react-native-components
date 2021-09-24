@@ -1,6 +1,10 @@
 # react-native-components
 
 library for react native components
+## Running locally
+```sh
+yarn && yarn storybook
+```
 
 ## Installation
 

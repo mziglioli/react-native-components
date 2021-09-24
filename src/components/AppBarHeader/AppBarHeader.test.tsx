@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react-native';
+import { fireEvent, render } from '@testing-library/react-native';
 import { AppBarHeader } from './AppBarHeader';
 
 describe('<Header>', () => {
@@ -32,5 +32,17 @@ describe('<Header>', () => {
     expect(queryByTestId('AppBarHeader__BackAction')).toBeNull();
     expect(getByTestId('AppBarHeader__Content')).toBeDefined();
     expect(getByTestId('AppBarHeader__Action')).toBeDefined();
+  });
+
+  it('should call back MenuAction on menu click', () => {
+    const { getByTestId } = renderComponent();
+    fireEvent.press(getByTestId('AppBarHeader__Action'));
+    expect(mockMenuAction).toHaveBeenCalled();
+  });
+
+  it('should call back BackAction on back click', () => {
+    const { getByTestId } = renderComponent();
+    fireEvent.press(getByTestId('AppBarHeader__BackAction'));
+    expect(mockBackAction).toHaveBeenCalled();
   });
 });

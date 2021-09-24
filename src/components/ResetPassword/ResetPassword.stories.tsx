@@ -1,6 +1,7 @@
 import React from 'react';
 import { ResetPassword } from './ResetPassword';
 import { action } from '@storybook/addon-actions';
+import { Navigation } from '../../container';
 
 export default {
   title: 'Components/ResetPassword',
@@ -16,5 +17,13 @@ const defaultValues = {
 
 export const BasicUsage = (args: any) => <ResetPassword {...args} />;
 BasicUsage.args = {
+  ...defaultValues,
+};
+export const WithNavigation = (args: any) => (
+  <Navigation>
+    <ResetPassword {...args} />
+  </Navigation>
+);
+WithNavigation.args = {
   ...defaultValues,
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Login } from './Login';
 import { action } from '@storybook/addon-actions';
+import { Navigation } from '../../container';
 
 export default {
   title: 'Components/Login',
@@ -17,5 +18,14 @@ const defaultValues = {
 
 export const BasicUsage = (args: any) => <Login {...args} />;
 BasicUsage.args = {
+  ...defaultValues,
+};
+
+export const WithNavigation = (args: any) => (
+  <Navigation>
+    <Login {...args} />
+  </Navigation>
+);
+WithNavigation.args = {
   ...defaultValues,
 };

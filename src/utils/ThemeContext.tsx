@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import React, { createContext, FC, useContext, useReducer } from 'react';
 
 const ThemeContext = createContext({});

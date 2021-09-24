@@ -36,6 +36,7 @@ export const InputTextPassword = ({
         maxLength: 100,
         right: (
           <TextInput.Icon
+            testID={`InputText__SecureText__${testId}`}
             touchSoundDisabled={false}
             name={secureText ? 'eye' : 'eye-off'}
             onPress={() => {

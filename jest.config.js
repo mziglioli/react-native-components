@@ -1,13 +1,8 @@
 module.exports = {
   testURL: 'http://localhost:8080',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  collectCoverageFrom: [
-    'src/**/*.{js,jsx,ts,tsx}',
-    '!src/**/*.d.{js,jsx,ts,tsx}',
-    '!src/**/*.stories.{js,jsx,ts,tsx}',
-    '!src/**/index.{js,jsx,ts,tsx}',
-  ],
-  testPathIgnorePatterns: ['<rootDir>/node_modules/'],
+  testPathIgnorePatterns: ["<rootDir>/node_modules", "<rootDir>/src/utils"],
+
   preset: 'react-native',
   globals: {
     'ts-jest': {
@@ -15,7 +10,6 @@ module.exports = {
     },
   },
   setupFiles: ['<rootDir>/jest.setup.ts'],
-  coverageDirectory: '<rootDir>/results/coverage',
   transform: {
     '^.+\\.(js|jsx)$': 'babel-jest',
   },
@@ -25,12 +19,23 @@ module.exports = {
     '<rootDir>/jest.setup-after-env.ts',
   ],
   reporters: ['default'],
+  coverageDirectory: '<rootDir>/results/coverage',
+  coveragePathIgnorePatterns: ["/node_modules/", "dist/", "jest.config.js"],
+  collectCoverageFrom: [
+    "<rootDir>/src/**/*.{js,jsx,ts,tsx}",
+    "!<rootDir>/src/**/*.test.{js,jsx,ts,tsx}",
+    "!<rootDir>/src/**/*.stories.{js,jsx,ts,tsx}",
+    "!<rootDir>/src/config/**/*",
+    "!<rootDir>/src/types/**/*",
+    "!<rootDir>/src/**/test/*",
+    "!<rootDir>/src/**/index.ts"
+  ],
   coverageThreshold: {
     global: {
-      branches: 100,
-      functions: 100,
-      lines: 100,
-      statements: 100,
+      branches: 90,
+      functions: 90,
+      lines: 90,
+      statements: 90,
     },
   },
 };

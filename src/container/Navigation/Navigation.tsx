@@ -1,15 +1,17 @@
+/* istanbul ignore file */
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { SideBar } from '../../components';
-import { View, Button } from 'react-native';
+import { View } from 'react-native';
 import { buildMenuItems } from '../../utils/BuilderTest';
 import { NavigationContainer } from '@react-navigation/native';
 import { PageContainer } from '../PageContainer';
+import type { DefaultProps } from '../../type';
 
 const Drawer = createDrawerNavigator();
 const SideBarItems = buildMenuItems();
 
-const Navigation = () => {
+const Navigation = ({ children }: DefaultProps) => {
   return (
     <View>
       <NavigationContainer
@@ -19,7 +21,7 @@ const Navigation = () => {
           initialRouteName="Contact"
           drawerContent={(props) => (
             <SideBar
-              currentPage={'Contact'}
+              currentPage={'Test'}
               customer={{ name: 'Marcelo Ziglioli', initials: 'MZ' }}
               itemPress={(item) => {
                 props.navigation.navigate(item.page);
@@ -29,29 +31,13 @@ const Navigation = () => {
           )}
         >
           <Drawer.Screen
-            name="Contact"
+            name="Test"
             component={() => (
-              <PageContainer
-                page="Contact"
-                name="Contact"
-                backNavigateTo="Contact"
-              />
-            )}
-          />
-          <Drawer.Screen name="Help">
-            {(props) => (
-              <PageContainer page="Help" name="Help" backNavigateTo="Contact">
-                <View>
-                  <Button
-                    onPress={() => {
-                      props.navigation.navigate('Contact');
-                    }}
-                    title={'second page'}
-                  />
-                </View>
+              <PageContainer page="Test" name="Test" backNavigateTo="Test">
+                {children}
               </PageContainer>
             )}
-          </Drawer.Screen>
+          />
         </Drawer.Navigator>
       </NavigationContainer>
     </View>

@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 const Styles = {
   sidebar: {
     box: {
@@ -37,6 +38,13 @@ const Styles = {
       flex: 1,
       flexDirection: 'column',
       backgroundColor: '#fff',
+    },
+    content: {
+      padding: 20,
+      maxWidth: 800,
+      width: '100%',
+      alignSelf: 'center',
+      minHeight: '100vh',
     },
   },
   list: {

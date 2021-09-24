@@ -1,8 +1,7 @@
 import React from 'react';
 import { Card, IconButton } from 'react-native-paper';
-import { parseColor, parseIconColor } from '../../utils/ThemeUtils';
+import { parseColor, parseIconColor, Styles } from '../../utils';
 import { ParagraphColored, TitleColored } from '../Colored';
-import { Styles } from '../../utils/Styles';
 import type { ColorType, DefaultProps } from '../../type';
 
 export interface NotificationProps extends DefaultProps {

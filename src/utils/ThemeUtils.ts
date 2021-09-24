@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import type { ColorType } from '../type';
 import type { IconSource } from 'react-native-paper/lib/typescript/components/Icon';
 

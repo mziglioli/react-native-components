@@ -68,7 +68,7 @@ export const CreateAccount = ({
       {/*@ts-ignore*/}
       {showError && (
         <ParagraphColored
-          testId={`Login__Error__${testId}`}
+          testId={`CreateAccount__Error__${testId}`}
           type={'error'}
           content={'Something went wrong, please try again later'}
         />
@@ -79,14 +79,12 @@ export const CreateAccount = ({
         }}
       >
         <Button
-          testID={`Login__Submit__${testId}`}
+          testID={`CreateAccount__Submit__${testId}`}
           mode="contained"
           disabled={!(email.isValid && password.isValid)}
           onPress={() => {
             console.log('clicked on signup');
-            if (name.isValid && email.isValid && password.isValid) {
-              onSignUpClick(name.value, email.value, password.value);
-            }
+            onSignUpClick(name.value, email.value, password.value);
           }}
         >
           SIGN UP

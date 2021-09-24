@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import React, { useState } from 'react';
 import { Autocomplete } from 'react-native-paper-autocomplete';
 import type { SelectItem, SelectItems, DefaultProps } from '../../type';

@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import React, { useState } from 'react';
 import { BottomNavigation } from 'react-native-paper';
 import type { IconSource } from 'react-native-paper/lib/typescript/components/Icon';
