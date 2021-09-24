@@ -52,7 +52,7 @@ const PageContainer = ({
         // @ts-ignore
         style={{
           ...Styles.page.content,
-          paddingHorizontal: window.width < 500 ? 0 : 20,
+          paddingHorizontal: window.width < 500 ? 5 : 20,
         }}
       >
         <ScrollView testID={`Page__Content__${testId}`}>{children}</ScrollView>

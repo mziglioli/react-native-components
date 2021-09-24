@@ -7,5 +7,6 @@ export * from './Colored';
 export * from './Item';
 export * from './InputText';
 export * from './Login';
+export * from './Loading';
 export * from './CreateAccount';
 export * from './ResetPassword';
