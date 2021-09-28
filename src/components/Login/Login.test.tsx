@@ -15,6 +15,7 @@ describe('<Login>', () => {
         onSignUpClick={mockOnSignupClick}
         onLoginClick={mockOnLoginClick}
         onForgotPasswordClick={mockOnForgotPasswordClick}
+        withSecret={false}
         {...overrides}
       />
     );
@@ -37,6 +38,11 @@ describe('<Login>', () => {
     fireEvent.press(getByTestId('Login__Submit__test_id'));
     expect(mockOnLoginClick).not.toHaveBeenCalled();
   });
+  it('should NOT call back when form is invalid for login secret empty', () => {
+    const { getByTestId } = renderComponent({ withSecret: true });
+    fireEvent.press(getByTestId('Login__Submit__test_id'));
+    expect(mockOnLoginClick).not.toHaveBeenCalled();
+  });
   it('should call back when form is valid for login', () => {
     const { getByTestId } = renderComponent();
     fireEvent.changeText(
@@ -46,6 +52,23 @@ describe('<Login>', () => {
     fireEvent.changeText(
       getByTestId('InputText__Login__Password__test_id'),
       'valid_password'
+    );
+    fireEvent.press(getByTestId('Login__Submit__test_id'));
+    expect(mockOnLoginClick).toHaveBeenCalled();
+  });
+  it('should call back when form is valid for login with secret', () => {
+    const { getByTestId } = renderComponent({ withSecret: true });
+    fireEvent.changeText(
+      getByTestId('InputText__Login__Email__test_id'),
+      'valid@email.com'
+    );
+    fireEvent.changeText(
+      getByTestId('InputText__Login__Password__test_id'),
+      'valid_password'
+    );
+    fireEvent.changeText(
+      getByTestId('InputText__Login__Secret__test_id'),
+      '1234'
     );
     fireEvent.press(getByTestId('Login__Submit__test_id'));
     expect(mockOnLoginClick).toHaveBeenCalled();

@@ -9,4 +9,4 @@ export * from './InputText';
 export * from './Login';
 export * from './Loading';
 export * from './CreateAccount';
-export * from './ResetPassword';
+export * from './ResendEmail';

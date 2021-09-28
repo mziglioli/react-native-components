@@ -1,4 +1,9 @@
-import { isValidEmail, isValidName, isValidPassword } from './ValidatorUtils';
+import {
+  isValidEmail,
+  isValidName,
+  isValidPassword,
+  isValidSecret,
+} from './ValidatorUtils';
 
 describe('ValidatorUtils functions test', () => {
   describe('Testing validateName function', () => {
@@ -54,6 +59,28 @@ describe('ValidatorUtils functions test', () => {
     });
     it('Check is NOT valid null', () => {
       const isValid = isValidPassword(undefined);
+      expect(isValid).toBe(false);
+    });
+  });
+
+  describe('Testing isValidSecret function', () => {
+    it('Check is valid', () => {
+      const isValid = isValidSecret('1234');
+      expect(isValid).toBe(true);
+    });
+    it('Check is NOT valid size', () => {
+      expect(isValidSecret('1')).toBe(false);
+      expect(isValidSecret('12')).toBe(false);
+      expect(isValidSecret('123')).toBe(false);
+      expect(isValidSecret('12345')).toBe(false);
+      expect(isValidSecret('a123')).toBe(false);
+    });
+    it('Check is NOT valid empty', () => {
+      const isValid = isValidSecret('');
+      expect(isValid).toBe(false);
+    });
+    it('Check is NOT valid null', () => {
+      const isValid = isValidSecret(undefined);
       expect(isValid).toBe(false);
     });
   });

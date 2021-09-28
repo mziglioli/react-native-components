@@ -11,6 +11,7 @@ export default {
 const defaultValues = {
   testId: 'test id',
   showError: false,
+  withSecret: false,
   onLoginClick: action('clicked in the onLoginClick'),
   onSignUpClick: action('clicked in the onSignUpClick'),
   onForgotPasswordClick: action('clicked in the onForgotPasswordClick'),

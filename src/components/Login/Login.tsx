@@ -4,17 +4,18 @@ import { Button, Title } from 'react-native-paper';
 import { Styles } from '../../utils';
 import type { DefaultProps } from '../../type';
 import {
+  initialFieldProp,
   InputFieldProps,
   InputTextEmail,
   InputTextPassword,
+  InputTextSecret,
 } from '../InputText';
 import { ParagraphColored } from '../Colored';
 
-const initialFieldProp = { value: '', isValid: false };
-
 export interface LoginProps extends DefaultProps {
   showError: boolean;
-  onLoginClick: (email: string, password: string) => void;
+  withSecret: boolean;
+  onLoginClick: (email: string, password: string, secret: string) => void;
   onSignUpClick: () => void;
   onForgotPasswordClick: () => void;
 }
@@ -22,38 +23,35 @@ export interface LoginProps extends DefaultProps {
 export const Login = ({
   testId,
   showError,
+  withSecret,
   onLoginClick,
   onSignUpClick,
   onForgotPasswordClick,
 }: LoginProps) => {
   const [email, setEmail] = useState<InputFieldProps>(initialFieldProp);
   const [password, setPassword] = useState<InputFieldProps>(initialFieldProp);
+  const [secret, setSecret] = useState<InputFieldProps>(initialFieldProp);
 
   return (
     <View testID={`Login__${testId}`}>
       <Title>Welcome back</Title>
-      <View
-        style={{
-          paddingTop: 10,
-        }}
-      >
-        <InputTextEmail
-          testId={`Login__Email__${testId}`}
-          value={email.value}
-          setValue={(inputFieldProps) => setEmail(inputFieldProps)}
+      <InputTextEmail
+        testId={`Login__Email__${testId}`}
+        value={email.value}
+        setValue={(inputFieldProps) => setEmail(inputFieldProps)}
+      />
+      <InputTextPassword
+        testId={`Login__Password__${testId}`}
+        value={password.value}
+        setValue={(inputFieldProps) => setPassword(inputFieldProps)}
+      />
+      {withSecret && (
+        <InputTextSecret
+          testId={`Login__Secret__${testId}`}
+          value={secret.value}
+          setValue={(inputFieldProps) => setSecret(inputFieldProps)}
         />
-      </View>
-      <View
-        style={{
-          paddingTop: 10,
-        }}
-      >
-        <InputTextPassword
-          testId={`Login__Password__${testId}`}
-          value={password.value}
-          setValue={(inputFieldProps) => setPassword(inputFieldProps)}
-        />
-      </View>
+      )}
       {/*@ts-ignore*/}
       <View style={Styles.forgotPassword}>
         <TouchableOpacity
@@ -73,10 +71,16 @@ export const Login = ({
       <Button
         testID={`Login__Submit__${testId}`}
         mode="contained"
-        disabled={!(email.isValid && password.isValid)}
+        disabled={
+          !(
+            email.isValid &&
+            password.isValid &&
+            (!withSecret || secret.isValid)
+          )
+        }
         onPress={() => {
           console.log('clicked on submit');
-          onLoginClick(email.value, password.value);
+          onLoginClick(email.value, password.value, secret.value);
         }}
       >
         LOGIN

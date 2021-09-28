@@ -5,6 +5,8 @@ import type { DefaultProps } from '../../type';
 import { ParagraphColored } from '../Colored';
 import { Styles } from '../../utils';
 
+export const initialFieldProp = { value: '', isValid: false };
+
 export interface InputFieldProps {
   value: string;
   isValid: boolean;

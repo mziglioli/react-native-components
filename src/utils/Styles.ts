@@ -54,11 +54,13 @@ const Styles = {
   },
   input: {
     backgroundColor: 'white',
+    paddingTop: 10,
   },
   forgotPassword: {
     width: '100%',
     alignItems: 'flex-end',
     marginBottom: 24,
+    paddingTop: 10,
   },
   row: {
     flexDirection: 'row',

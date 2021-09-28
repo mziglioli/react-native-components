@@ -8,22 +8,26 @@ import { ParagraphColored } from '../Colored';
 
 const initialFieldProp = { value: '', isValid: false };
 
-export interface ResetPasswordProps extends DefaultProps {
+export interface ResendEmailProps extends DefaultProps {
+  title: string;
+  buttonTitle: string;
   showError: boolean;
   onLoginClick: () => void;
   onResetClick: (email: string) => void;
 }
 
-export const ResetPassword = ({
+export const ResendEmail = ({
+  title,
+  buttonTitle,
   testId,
   showError,
   onLoginClick,
   onResetClick,
-}: ResetPasswordProps) => {
+}: ResendEmailProps) => {
   const [email, setEmail] = useState<InputFieldProps>(initialFieldProp);
   return (
-    <View testID={`ResetPassword__${testId}`}>
-      <Title>Reset password</Title>
+    <View testID={`ResendEmail__${testId}`}>
+      <Title>{title}</Title>
       <View
         style={{
           paddingTop: 10,
@@ -31,20 +35,20 @@ export const ResetPassword = ({
         }}
       >
         <InputTextEmail
-          testId={`ResetPassword__Email__${testId}`}
+          testId={`ResendEmail__Email__${testId}`}
           value={email.value}
           setValue={(inputFieldProps) => setEmail(inputFieldProps)}
         />
       </View>
       {showError && (
         <ParagraphColored
-          testId={`ResetPassword__Error__${testId}`}
+          testId={`ResendEmail__Error__${testId}`}
           type={'error'}
           content={'Something went wrong, please try again later'}
         />
       )}
       <Button
-        testID={`ResetPassword__Submit__${testId}`}
+        testID={`ResendEmail__Submit__${testId}`}
         mode="contained"
         disabled={!email.isValid}
         onPress={() => {
@@ -52,12 +56,12 @@ export const ResetPassword = ({
           onResetClick(email.value);
         }}
       >
-        RESET PASSWORD
+        {buttonTitle}
       </Button>
       {/*@ts-ignore*/}
       <View style={Styles.row}>
         <TouchableOpacity
-          testID={`ResetPassword__Login__${testId}`}
+          testID={`ResendEmail__Login__${testId}`}
           onPress={onLoginClick}
         >
           <Subheading>← Back to login</Subheading>
