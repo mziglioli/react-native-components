@@ -69,6 +69,24 @@ const Styles = {
   link: {
     fontWeight: 'bold',
   },
+  provider: {
+    borderRadius: 8,
+    borderColor: '#efefef',
+    borderWidth: 1,
+    marginTop: 10,
+  },
+  score: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'start',
+    alignItems: 'center',
+    padding: 0,
+    paddingTop: 10,
+  },
+  rating: {
+    padding: '0',
+    margin: '-8px',
+  },
 };
 
 export { Styles };
