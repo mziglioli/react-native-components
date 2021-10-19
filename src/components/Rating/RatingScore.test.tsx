@@ -10,4 +10,9 @@ describe('<RatingScore>', () => {
     const { getByTestId } = renderComponent();
     expect(getByTestId('RatingScore__test_id')).toBeDefined();
   });
+
+  it('should render the component with decimals', () => {
+    const { getByTestId } = renderComponent({ score: 3.5 });
+    expect(getByTestId('RatingScore__test_id')).toBeDefined();
+  });
 });

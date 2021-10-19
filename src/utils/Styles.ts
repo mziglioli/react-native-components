@@ -73,7 +73,7 @@ const Styles = {
     borderRadius: 8,
     borderColor: '#efefef',
     borderWidth: 1,
-    marginTop: 10,
+    marginBottom: 10,
   },
   score: {
     flex: 1,

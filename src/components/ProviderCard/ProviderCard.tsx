@@ -34,7 +34,7 @@ const ProviderCard = ({
       />
       <Card.Content>
         {description && (
-          <Paragraph testID={`ProviderCard__Paragraph__${testId}`}>
+          <Paragraph testID={`ProviderCard__Description__${testId}`}>
             {description}
           </Paragraph>
         )}
