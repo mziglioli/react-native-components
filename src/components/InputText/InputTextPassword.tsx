@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import { TextInput } from 'react-native-paper';
-import type { DefaultProps } from '../../type';
-import { InputFieldProps, InputText } from './InputText';
+import type { InputTextDefaultProps } from '../../type';
+import { InputText } from './InputText';
 import { isValidPassword } from '../../utils';
 
-export interface InputTextPasswordProps extends DefaultProps {
-  value: string;
-  setValue: ({ value, isValid }: InputFieldProps) => void;
-}
 export const InputTextPassword = ({
   testId,
   value,
   setValue,
-}: InputTextPasswordProps) => {
+}: InputTextDefaultProps) => {
   const [showError, setShowError] = useState<boolean>(false);
   const validatePassword = (password: string) => {
     const isValid = isValidPassword(password);
@@ -34,6 +30,10 @@ export const InputTextPassword = ({
         secureTextEntry: secureText,
         returnKeyType: 'done',
         maxLength: 100,
+        accessible: true,
+        accessibilityLabel: 'password',
+        accessibilityHint: 'hint',
+        accessibilityRole: 'text',
         right: (
           <TextInput.Icon
             testID={`InputText__SecureText__${testId}`}

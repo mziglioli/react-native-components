@@ -6,9 +6,10 @@ import type { ColorType, DefaultProps } from '../../type';
 export interface ColoredProps extends DefaultProps {
   type: ColorType;
   content: string;
+  bold?: boolean;
 }
 
-const TitleColored = ({ testId, type, content }: ColoredProps) => {
+const TitleColored = ({ testId, type, content, children }: ColoredProps) => {
   return (
     <Title
       testID={`Title__${testId}`}
@@ -17,6 +18,7 @@ const TitleColored = ({ testId, type, content }: ColoredProps) => {
       }}
     >
       {content}
+      {children}
     </Title>
   );
 };

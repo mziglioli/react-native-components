@@ -2,13 +2,8 @@ import React, { useState } from 'react';
 import { TouchableOpacity, Text, View } from 'react-native';
 import { Button, Title } from 'react-native-paper';
 import { Styles } from '../../utils';
-import type { DefaultProps } from '../../type';
-import {
-  InputFieldProps,
-  InputTextName,
-  InputTextEmail,
-  InputTextPassword,
-} from '../InputText';
+import type { DefaultProps, InputFieldProps } from '../../type';
+import { InputTextName, InputTextEmail, InputTextPassword } from '../InputText';
 import { ParagraphColored } from '../Colored';
 
 const initialFieldProp = { value: '', isValid: false };

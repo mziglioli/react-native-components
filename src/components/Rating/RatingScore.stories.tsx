@@ -7,6 +7,8 @@ export default {
 };
 
 const defaultValues = {
+  isMobile: false,
+  testId: 'test',
   score: 5,
 };
 

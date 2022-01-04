@@ -7,10 +7,6 @@ import { Styles } from '../../utils';
 
 export const initialFieldProp = { value: '', isValid: false };
 
-export interface InputFieldProps {
-  value: string;
-  isValid: boolean;
-}
 export interface InputTextProps extends DefaultProps {
   value: string | undefined;
   validate: (e: any) => void;
@@ -30,6 +26,7 @@ export const InputText = ({
   return (
     <View>
       <TextInput
+        label={'label'}
         value={value}
         testID={`InputText__${testId}`}
         mode="outlined"
@@ -37,6 +34,8 @@ export const InputText = ({
         style={Styles.input}
         underlineColor="transparent"
         onChangeText={validate}
+        textAlign={'left'}
+        onTextInput={validate}
         {...props}
       />
       {showError && (

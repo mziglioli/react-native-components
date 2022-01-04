@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
-import { InputText, InputFieldProps } from './InputText';
+import { InputText } from './InputText';
 import { isValidEmail } from '../../utils';
-import type { DefaultProps } from '../../type';
-
-export interface InputTextEmailProps extends DefaultProps {
-  value: string;
-  setValue: ({ value, isValid }: InputFieldProps) => void;
-}
+import type { InputTextDefaultProps } from '../../type';
 
 export const InputTextEmail = ({
   testId,
   value,
   setValue,
-}: InputTextEmailProps) => {
+}: InputTextDefaultProps) => {
   const [showError, setShowError] = useState<boolean>(false);
   const validateEmail = (email: string) => {
     const isValid = isValidEmail(email);
@@ -34,6 +29,10 @@ export const InputTextEmail = ({
         keyboardType: 'email-address',
         returnKeyType: 'next',
         maxLength: 100,
+        accessible: true,
+        accessibilityLabel: 'email',
+        accessibilityHint: 'hint',
+        accessibilityRole: 'text',
       }}
     />
   );

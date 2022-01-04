@@ -2,6 +2,7 @@ const namePattern =
   /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/i;
 const emailPattern = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i;
 const secretPattern = /^([0-9]{4})$/i;
+const numberPattern = /^([0-9]+)$/i;
 
 export const isValidName = (name: string | undefined): boolean => {
   return !!(name && name.trim().length > 0 && name.match(namePattern));
@@ -20,4 +21,7 @@ export const isValidPassword = (password: string | undefined): boolean => {
     password.trim().length > 3 &&
     password.trim().length < 100
   );
+};
+export const isValidNumber = (value: string | undefined): boolean => {
+  return !!(value && value.trim().length > 0 && value.match(numberPattern));
 };

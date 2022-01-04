@@ -1,33 +1,34 @@
 import React, { useState } from 'react';
 import { InputText } from './InputText';
-import { isValidName } from '../../utils';
+import { isValidNumber } from '../../utils';
 import type { InputTextDefaultProps } from '../../type';
 
-export const InputTextName = ({
+export const InputTextNumber = ({
   testId,
   value,
   setValue,
+  label,
 }: InputTextDefaultProps) => {
   const [showError, setShowError] = useState<boolean>(false);
-  const validateName = (name: string) => {
-    const isValid = isValidName(name);
+  const validateNumber = (numberValue: string) => {
+    const isValid = isValidNumber(numberValue);
     setShowError(!isValid);
-    setValue({ value: name, isValid });
+    setValue({ value: numberValue, isValid });
   };
   return (
     <InputText
       value={value}
       testId={testId}
       showError={showError}
-      errorMessage={'Name is invalid'}
-      validate={validateName}
+      errorMessage={'Number is invalid'}
+      validate={validateNumber}
       props={{
-        label: 'Name',
-        placeholder: 'Enter your name',
+        label: label,
+        placeholder: 'Enter the value',
         returnKeyType: 'next',
-        maxLength: 300,
+        maxLength: 20,
         accessible: true,
-        accessibilityLabel: 'name',
+        accessibilityLabel: label,
         accessibilityHint: 'hint',
         accessibilityRole: 'text',
       }}

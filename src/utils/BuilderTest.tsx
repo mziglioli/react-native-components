@@ -15,6 +15,10 @@ import {
 } from 'react-native-paper';
 
 import React from 'react';
+import type {
+  RecommendationUser,
+  RecommendationsUsers,
+} from '../type/recommendation';
 
 /* istanbul ignore file */
 export const buildMenuItem = (
@@ -79,4 +83,27 @@ export const tabScenes = {
   music: () => buildPage('music page', 'this is a music content'),
   albums: () => buildPage('albums page', 'this is a albums content'),
   recents: () => buildPage('recents page', 'this is a recents content'),
+};
+
+export const buildRecommendationUser = (id: number): RecommendationUser => {
+  return {
+    id: `123__${id}`,
+    name: `User Test${id}`,
+    initials: 'UT',
+    email: 'test@email.com',
+    mediaId: `media123__${id}`,
+    mediaType: 'face',
+    avatar:
+      'https://media-exp1.licdn.com/dms/image/C4E03AQEV3M71yaKCLg/profile-displayphoto-shrink_200_200/0/1596888669832?e=1640822400&v=beta&t=6832lAnOfbI17JQ009D3uq6d8XKh6uH7dN6bSPM5Aic',
+    date: '10 Oct 2021',
+    score: 3.3,
+    comments: `any comments for test ${id}`,
+  };
+};
+
+export const buildRecommendationsUsers = (): RecommendationsUsers => {
+  return [
+    buildRecommendationUser(1),
+    { ...buildRecommendationUser(2), avatar: undefined },
+  ];
 };

@@ -3,3 +3,4 @@ export * from './InputTextEmail';
 export * from './InputTextPassword';
 export * from './InputTextName';
 export * from './InputTextSecret';
+export * from './InputTextNumber';

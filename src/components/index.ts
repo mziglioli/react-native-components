@@ -11,5 +11,6 @@ export * from './Login';
 export * from './Loading';
 export * from './CreateAccount';
 export * from './ResendEmail';
-export * from './ProviderCard';
+export * from './RatingCard';
 export * from './Rating';
+export * from './SearchFilters';

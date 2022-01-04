@@ -17,11 +17,7 @@ export interface SideBarProps {
 const SideBar = ({ currentPage, customer, items, itemPress }: SideBarProps) => {
   return (
     <View testID="SideBar" style={Styles.sidebar.box}>
-      <View
-        testID="SideBar__Head"
-        // @ts-ignore
-        style={Styles.sidebar.head}
-      >
+      <View testID="SideBar__Head" style={Styles.sidebar.head}>
         <Avatar.Text size={32} label={customer.initials} />
         <Text style={Styles.sidebar.title}>{customer.name}</Text>
       </View>

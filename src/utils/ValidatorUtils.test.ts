@@ -3,6 +3,7 @@ import {
   isValidName,
   isValidPassword,
   isValidSecret,
+  isValidNumber,
 } from './ValidatorUtils';
 
 describe('ValidatorUtils functions test', () => {
@@ -82,6 +83,22 @@ describe('ValidatorUtils functions test', () => {
     it('Check is NOT valid null', () => {
       const isValid = isValidSecret(undefined);
       expect(isValid).toBe(false);
+    });
+  });
+  describe('Testing isValidNumber function', () => {
+    it('Check is valid', () => {
+      expect(isValidNumber('1')).toBe(true);
+      expect(isValidNumber('9999999999999')).toBe(true);
+      expect(isValidNumber('1234')).toBe(true);
+    });
+    it('Check is NOT valid', () => {
+      expect(isValidNumber('')).toBe(false);
+      expect(isValidNumber(undefined)).toBe(false);
+      expect(isValidNumber('abc')).toBe(false);
+      expect(isValidNumber('a12a')).toBe(false);
+      expect(isValidNumber('11a')).toBe(false);
+      expect(isValidNumber('a11')).toBe(false);
+      expect(isValidNumber('1.00')).toBe(false);
     });
   });
 });

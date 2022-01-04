@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { TouchableOpacity, Text, View } from 'react-native';
 import { Button, Title } from 'react-native-paper';
 import { Styles } from '../../utils';
-import type { DefaultProps } from '../../type';
+import type { DefaultProps, InputFieldProps } from '../../type';
 import {
   initialFieldProp,
-  InputFieldProps,
   InputTextEmail,
   InputTextPassword,
   InputTextSecret,
@@ -52,7 +51,6 @@ export const Login = ({
           setValue={(inputFieldProps) => setSecret(inputFieldProps)}
         />
       )}
-      {/*@ts-ignore*/}
       <View style={Styles.forgotPassword}>
         <TouchableOpacity
           testID={`Login__ForgotPassword__${testId}`}
@@ -85,14 +83,12 @@ export const Login = ({
       >
         LOGIN
       </Button>
-      {/*@ts-ignore*/}
       <View style={Styles.row}>
         <Text>Don’t have an account? </Text>
         <TouchableOpacity
           testID={`Login__Signup__${testId}`}
           onPress={onSignUpClick}
         >
-          {/*@ts-ignore*/}
           <Text style={Styles.link}>Sign up</Text>
         </TouchableOpacity>
       </View>

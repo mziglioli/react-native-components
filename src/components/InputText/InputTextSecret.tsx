@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
-import { InputText, InputFieldProps } from './InputText';
+import { InputText } from './InputText';
 import { isValidSecret } from '../../utils';
-import type { DefaultProps } from '../../type';
-
-export interface InputTextSecretProps extends DefaultProps {
-  value: string;
-  setValue: ({ value, isValid }: InputFieldProps) => void;
-}
+import type { InputTextDefaultProps } from '../../type';
 
 export const InputTextSecret = ({
   testId,
   value,
   setValue,
-}: InputTextSecretProps) => {
+}: InputTextDefaultProps) => {
   const [showError, setShowError] = useState<boolean>(false);
   const validateSecret = (secret: string) => {
     const isValid = isValidSecret(secret);
@@ -32,6 +27,10 @@ export const InputTextSecret = ({
         returnKeyType: 'next',
         maxLength: 4,
         minLength: 4,
+        accessible: true,
+        accessibilityLabel: 'secret',
+        accessibilityHint: 'hint',
+        accessibilityRole: 'text',
       }}
     />
   );

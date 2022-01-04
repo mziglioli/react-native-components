@@ -27,7 +27,6 @@ const PageContainer = ({
   console.log('window width', window.width);
 
   return (
-    // @ts-ignore
     <View style={Styles.page.view}>
       <AppBarHeader
         title={page}
@@ -49,7 +48,6 @@ const PageContainer = ({
       />
       <View
         testID={`Page__Header__${testId}`}
-        // @ts-ignore
         style={{
           ...Styles.page.content,
           paddingHorizontal: window.width < 500 ? 5 : 20,

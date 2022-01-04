@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { Button, Title, Subheading } from 'react-native-paper';
 import { Styles } from '../../utils';
-import type { DefaultProps } from '../../type';
-import { InputFieldProps, InputTextEmail } from '../InputText';
+import type { DefaultProps, InputFieldProps } from '../../type';
+import { InputTextEmail } from '../InputText';
 import { ParagraphColored } from '../Colored';
 
 const initialFieldProp = { value: '', isValid: false };
@@ -58,7 +58,6 @@ export const ResendEmail = ({
       >
         {buttonTitle}
       </Button>
-      {/*@ts-ignore*/}
       <View style={Styles.row}>
         <TouchableOpacity
           testID={`ResendEmail__Login__${testId}`}
